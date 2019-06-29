@@ -14,7 +14,7 @@ exports.Kittydar = Kittydar;
 exports.detectCats = function(canvas, options) {
   var kittydar = new Kittydar(options);
   return kittydar.detectCats(canvas);
-}
+};
 
 var defaultParams = {
   patchSize: 48,       // size of training images in px
@@ -44,7 +44,7 @@ var defaultParams = {
       value: output
     };
   }
-}
+};
 
 function Kittydar(options) {
   this.params = {};
@@ -59,7 +59,7 @@ function Kittydar(options) {
     // use the neural network as the classifier
     extend(this.params, nnOptions);
   }
-}
+};
 
 Kittydar.prototype = {
   detectCats: function(canvas) {
@@ -146,7 +146,7 @@ Kittydar.prototype = {
     cats = nms.combineOverlaps(rects, overlapThresh, minOverlaps);
     return cats;
   }
-}
+};
 
 function getRect(matrix, x, y, width, height) {
   var square = new Array(height);
@@ -157,7 +157,7 @@ function getRect(matrix, x, y, width, height) {
     }
   }
   return square;
-}
+};
 
 function resizeCanvas(canvas, width, height) {
   var resizeCanvas = createCanvas(width, height);
@@ -167,7 +167,7 @@ function resizeCanvas(canvas, width, height) {
   ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height,
                 0, 0, width, height);
   return resizeCanvas;
-}
+};
 
 function createCanvas(width, height) {
   if (typeof Canvas !== 'undefined') {
@@ -181,10 +181,10 @@ function createCanvas(width, height) {
     canvas.setAttribute('height', height);
     return canvas;
   }
-}
+};
 
 function extend(object, extensions) {
   for (ext in extensions) {
     object[ext] = extensions[ext];
   }
-}
+};
